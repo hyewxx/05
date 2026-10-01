@@ -1,20 +1,37 @@
 #include <stdio.h>
 
-int main(void)
-{
-    int num;
-    int sum = 0;
-    int i;
+int main(void) {
+    int num1, num2;
+    char op;
+    int res = 0;
 
-    printf("Input a number : ");
-    scanf("%i", &num);
+    printf("Enter the calculation : ");
+    scanf("%d %c %d", &num1, &op, &num2);
 
-    for (i = 0; i < num; i++)
+    switch (op)
     {
-        sum += i + 1;
+        case '+':
+            res = num1 + num2;
+            break;
+        case '-':
+            res = num1 - num2;
+            break;
+        case '*':
+            res = num1 * num2;
+            break;
+        case '/':
+            if (num2 != 0) {
+                res = num1 / num2;
+            } else {
+                printf("0 can't be denominator.\n");
+            }
+            break;
+        default:
+            printf("Invalid operater\n");
+            break;
     }
 
-    printf("The result is %i\n", sum);
+    printf("The result is %i\n", res);
 
     return 0;
 }
