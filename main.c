@@ -1,19 +1,19 @@
 #include <stdio.h>
 
-int main(void) {
-    int integer;
-    int abs_value;
+int main(void)
+{
+    char c;
+    int count = 0;
 
-    printf("Input an integer : ");
-    scanf("%i", &integer);
+    printf("Input a string : ");
 
-    if (integer < 0) {
-        abs_value = -integer;
-    } else {
-        abs_value = integer;
+    while ( (c = getchar()) != '\n' )
+    {
+        if (c >= '0' && c <= '9')
+            count++;
     }
 
-    printf("Absolute value of %i is %i\n", integer, abs_value);
+    printf("The number of digits is %i\n", count);
 
     return 0;
 }
