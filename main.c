@@ -1,37 +1,24 @@
 #include <stdio.h>
 
-int main(void) {
-    int num1, num2;
-    char op;
-    int res = 0;
+int main(void) 
+{
+    int answer = 59;
+    int guess;
+    int trials = 0;
 
-    printf("Enter the calculation : ");
-    scanf("%d %c %d", &num1, &op, &num2);
+    do {
+        printf("Guess a number :");
+        scanf("%i", &guess);
+        trials++;
 
-    switch (op)
-    {
-        case '+':
-            res = num1 + num2;
-            break;
-        case '-':
-            res = num1 - num2;
-            break;
-        case '*':
-            res = num1 * num2;
-            break;
-        case '/':
-            if (num2 != 0) {
-                res = num1 / num2;
-            } else {
-                printf("0 can't be denominator.\n");
-            }
-            break;
-        default:
-            printf("Invalid operater\n");
-            break;
-    }
+        if (guess > answer) {
+            printf("high!\n");
+        } else if (guess < answer) {
+            printf("low!\n");
+        }
+    } while (guess != answer);
 
-    printf("The result is %i\n", res);
+    printf("Congratulation! trials:%i\n", trials);
 
     return 0;
 }
